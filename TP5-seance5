@@ -1,0 +1,105 @@
+#exo 1
+import numpy
+def tauxdevariation(fn, a, h):
+    taux = (fn(a+h)-fn(a))/h
+    return taux
+
+def fn(x):
+    return 3*pow(x, 3) + 1*pow(x, 2) - 5
+
+tauxdevariation(fn, 10, 3)
+
+
+#exo 2
+def coefdirecteur(fn, a, b,p):
+    coef = []
+    # on ajoute à la liste le coef directeur entre l'intervall avec un pas p
+    for i in range(a,b,p):
+        # faire un coef.push
+
+        return coef
+
+def fn(x):
+    return (1+x)/(x-4)
+
+coef(fn, 0, 0, 0.01)
+
+
+#exo 4
+def tN(n):
+    return pow(n,2) - pow((n - 1), 2)
+
+def sN(n):
+    sn = 0
+    for i in range(n):
+        sn += tN(i)
+    print(sn)
+    return sn
+
+sN(4)
+
+
+
+#exo5
+def deter(e, u0):
+    b = 1;
+    un = u0
+    n = 0;
+    while ( b == 1 ):
+        un = uN(un)
+        print(un)
+        if(un < e):
+            b = 0
+        else:
+            n+=1
+
+    return n;
+
+def uN(un):
+    return 0.5*un
+
+deter(5, 2)
+
+#exo 6
+def val_app(epsilon): 
+    elm1=1
+    elm2=elm1-1/(32)
+    signe=1
+    val=5
+    while abs(elm2-elm1)>epsilon:
+       elm1=elm2
+       elm2=elm1+signe*(1/(val2))
+       val+=2
+       signe*=(-1)
+    return elm2
+ 
+# tester la fonction
+print(val_app(0.05))
+
+#exo 7
+def limite(epsilon):
+    U0 = 2
+    Un = U0+2/U0
+    while abs(Un-U0) > epsilon:
+        U0 = Un
+        Un = U0+2/U0
+    return Un
+ print(limite(0.05))
+
+#exo 3
+# facon iterative
+
+def calcul_suite(n, u0):
+
+    uN = u0 + n + 1
+
+    for i in range(10):
+        uN = uN + n + 1
+        print(uN)
+
+# par recurrence
+
+def calcul_suite_recurrence(n, uN):
+    resp = uN + n + 1
+    print(resp)
+    return calcul_suite_recurrence(n, resp)
